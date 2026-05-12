@@ -1,31 +1,24 @@
-import type { Metadata } from "next";
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Easy Where Solution | AI & Digital Business Services",
-  
-  description:
-    "Easy Where Solution provides AI tools, digital marketing, and complete online business solutions.",
-
+  title: "Easy Where Solution | AI Powered Business Solutions",
+  description: "Easy Where Solution puts all your business in one place. AI powered marketing, SEO, and automation tools to scale your business faster.",
+  keywords: "AI solutions, business automation, SEO, marketing, Easy Where Solution",
   openGraph: {
-    title: "Easy Where Solution",
-    
-    description:
-      "We provide AI rankings and digital business solutions.",
-
-    url: "https://my-website-phi-lake-53.vercel.app",
-
-    siteName: "Easy Where Solution",
-
-    images: [
-      {
-        url: "logo.png",
-        width: 1200,
-        height: 630,
-        alt: "Easy Where Solution",
-      },
-    ],
-
-    locale: "en_US",
+    title: "Easy Where Solution | AI Powered Business Solutions",
+    description: "Scale your business with AI powered solutions.",
     type: "website",
   },
-};
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning={true}>
+      <body>{children}</body>
+    </html>
+  )
+}
