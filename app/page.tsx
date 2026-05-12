@@ -7,7 +7,7 @@ export default function Home() {
 
       {/* NAVBAR */}
       <nav style={{display:'flex',justifyContent:'space-between',alignItems:'center',padding:'15px 30px',borderBottom:'1px solid #333',position:'sticky',top:0,backgroundColor:'#000',zIndex:100,flexWrap:'wrap',gap:'10px'}}>
-        <h1 style={{fontSize:'20px',fontWeight:'bold',margin:0}}>MY AIO</h1>
+        <h1 style={{fontSize:'20px',fontWeight:'bold',margin:0}}>Easy Where Solution</h1>
         <div style={{display:'flex',gap:'20px',flexWrap:'wrap'}}>
           <a href="#" style={{color:'#aaa',textDecoration:'none',fontSize:'14px'}}>Home</a>
           <a href="#" style={{color:'#aaa',textDecoration:'none',fontSize:'14px'}}>Solutions</a>
