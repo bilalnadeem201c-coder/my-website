@@ -28,7 +28,7 @@ export default function Home() {
           Your AI Assistant to Scale Your Business
         </h1>
         <p style={{fontSize:'clamp(15px, 2vw, 18px)',color:'#aaa',maxWidth:'600px',marginBottom:'35px',lineHeight:'1.7',padding:'0 10px'}}>
-          MY AIO puts all your business in one place. See what is working. Fix what is not. Make smarter moves with AI.
+         Easy Where Solution puts all your business in one place. See what is working. Fix what is not. Make smarter moves with AI.
         </p>
         <div style={{display:'flex',gap:'12px',flexWrap:'wrap',justifyContent:'center'}}>
           <button style={{backgroundColor:'white',color:'black',padding:'12px 30px',borderRadius:'999px',border:'none',fontSize:'16px',fontWeight:'bold',cursor:'pointer'}}>
@@ -92,7 +92,7 @@ export default function Home() {
       {/* FOOTER */}
       <footer style={{borderTop:'1px solid #1a1a1a',padding:'30px 20px',display:'flex',justifyContent:'space-between',alignItems:'center',flexWrap:'wrap',gap:'15px'}}>
         <h2 style={{fontSize:'18px',fontWeight:'bold',margin:0}}>MY AIO</h2>
-        <p style={{color:'#555',margin:0,fontSize:'13px'}}>2026 MY AIO. All rights reserved.</p>
+        <p style={{color:'#555',margin:0,fontSize:'13px'}}>2026Easy Where Solution. All rights reserved.</p>
         <div style={{display:'flex',gap:'15px'}}>
           <a href="#" style={{color:'#555',textDecoration:'none',fontSize:'13px'}}>Privacy</a>
           <a href="#" style={{color:'#555',textDecoration:'none',fontSize:'13px'}}>Terms</a>
