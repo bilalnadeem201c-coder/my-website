@@ -1,6 +1,5 @@
 "use client"
 import { useState, useEffect } from "react"
-import Image from "next/image"
 import Marquee from "react-fast-marquee"
 
 export default function Home() {
@@ -37,19 +36,14 @@ export default function Home() {
             transform: split ? 'translateY(-100%)' : 'translateY(0)',
             transition:'transform 0.9s cubic-bezier(0.76, 0, 0.24, 1)',
           }}>
-            <Image
-              src="/logo.png"
-              alt="Easy Where Solution Logo"
-              width={60}
-              height={60}
-              style={{animation:'fadeIn 0.8s ease forwards', marginBottom:'10px'}}
-            />
             <h2 style={{
-              fontSize:'clamp(18px, 4vw, 32px)',
+              fontSize:'clamp(20px, 4vw, 36px)',
               fontWeight:'bold', color:'white',
               fontFamily:'Arial, sans-serif',
-              letterSpacing:'4px', margin:0,
+              letterSpacing:'5px', margin:0,
               animation:'fadeIn 0.8s ease forwards',
+              textAlign:'center',
+              padding:'0 20px',
             }}>
               Easy Where Solution
             </h2>
@@ -101,13 +95,7 @@ export default function Home() {
               flexWrap:'wrap', gap:'10px',
             }}
           >
-            <a href="/" aria-label="Easy Where Solution Home" style={{textDecoration:'none',display:'flex',alignItems:'center',gap:'10px'}}>
-              <Image
-                src="/logo.png"
-                alt="Easy Where Solution Logo"
-                width={35}
-                height={35}
-              />
+            <a href="/" aria-label="Easy Where Solution Home" style={{textDecoration:'none'}}>
               <span style={{fontSize:'18px',fontWeight:'bold',color:'white'}}>
                 Easy Where Solution
               </span>
@@ -150,7 +138,6 @@ export default function Home() {
             AI That Works for You
           </div>
 
-          {/* ONLY ONE H1 ON PAGE */}
           <h1 style={{
             fontSize:'clamp(32px, 6vw, 64px)',
             fontWeight:'bold', maxWidth:'800px',
@@ -244,7 +231,7 @@ export default function Home() {
             {number:'1000+', label:'Campaigns in Motion'},
           ].map((stat) => (
             <div key={stat.number} style={{textAlign:'center',padding:'40px 15px',backgroundColor:'#000'}}>
-              <p style={{fontSize:'clamp(32px, 5vw, 52px)',fontWeight:'bold',marginBottom:'8px',margin:'0 0 8px 0'}}>{stat.number}</p>
+              <p style={{fontSize:'clamp(32px, 5vw, 52px)',fontWeight:'bold',margin:'0 0 8px 0'}}>{stat.number}</p>
               <p style={{color:'#666',fontSize:'13px',margin:0}}>{stat.label}</p>
             </div>
           ))}
@@ -281,7 +268,7 @@ export default function Home() {
                 borderRadius:'16px',
                 border:'1px solid #1f1f1f',
               }}>
-                <p style={{fontSize:'36px',fontWeight:'bold',color:'#222',marginBottom:'15px'}}>{step.num}</p>
+                <p style={{fontSize:'36px',fontWeight:'bold',color:'#222',margin:'0 0 15px 0'}}>{step.num}</p>
                 <h3 style={{fontSize:'17px',fontWeight:'bold',marginBottom:'10px'}}>{step.title}</h3>
                 <p style={{color:'#666',lineHeight:'1.7',fontSize:'14px',margin:0}}>{step.desc}</p>
               </article>
@@ -303,10 +290,7 @@ export default function Home() {
             gap:'15px',
           }}
         >
-          <div style={{display:'flex',alignItems:'center',gap:'10px'}}>
-            <Image src="/logo.png" alt="Easy Where Solution" width={30} height={30} />
-            <span style={{fontSize:'16px',fontWeight:'bold'}}>Easy Where Solution</span>
-          </div>
+          <span style={{fontSize:'16px',fontWeight:'bold'}}>Easy Where Solution</span>
           <p style={{color:'#555',margin:0,fontSize:'13px'}}>
             2026 Easy Where Solution. All rights reserved.
           </p>
