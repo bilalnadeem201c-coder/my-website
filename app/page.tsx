@@ -4,63 +4,86 @@ import Marquee from "react-fast-marquee"
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
-  const [fadeOut, setFadeOut] = useState(false)
+  const [split, setSplit] = useState(false)
 
   useEffect(() => {
     setTimeout(() => {
-      setFadeOut(true)
+      setSplit(true)
       setTimeout(() => {
         setLoading(false)
-      }, 800)
-    }, 2500)
+      }, 1000)
+    }, 2000)
   }, [])
 
   return (
     <>
-      {/* PRELOADER */}
+      {/* PRELOADER - SPLIT SCREEN */}
       {loading && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundColor: '#000',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 9999,
-          opacity: fadeOut ? 0 : 1,
-          transition: 'opacity 0.8s ease',
-        }}>
-          <h1 style={{
-            fontSize: '36px',
-            fontWeight: 'bold',
-            color: 'white',
-            fontFamily: 'Arial, sans-serif',
-            letterSpacing: '4px',
-            animation: 'pulse 1.5s ease-in-out infinite',
-          }}>
-            Easy Where Solution
-          </h1>
-          <p style={{
-            color: '#555',
-            marginTop: '15px',
-            fontSize: '14px',
-            fontFamily: 'Arial, sans-serif',
-            letterSpacing: '2px',
-          }}>
-            Loading...
-          </p>
+        <>
           <style>{`
-            @keyframes pulse {
-              0% { opacity: 0.4; transform: scale(0.98); }
-              50% { opacity: 1; transform: scale(1.02); }
-              100% { opacity: 0.4; transform: scale(0.98); }
+            @keyframes fadeText {
+              0% { opacity: 0; transform: translateY(20px); }
+              100% { opacity: 1; transform: translateY(0); }
             }
           `}</style>
-        </div>
+
+          {/* TOP HALF */}
+          <div style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '50%',
+            backgroundColor: '#000',
+            zIndex: 9999,
+            transform: split ? 'translateY(-100%)' : 'translateY(0)',
+            transition: 'transform 0.9s cubic-bezier(0.76, 0, 0.24, 1)',
+            display: 'flex',
+            alignItems: 'flex-end',
+            justifyContent: 'center',
+            paddingBottom: '10px',
+          }}>
+            <h1 style={{
+              fontSize: 'clamp(24px, 5vw, 48px)',
+              fontWeight: 'bold',
+              color: 'white',
+              fontFamily: 'Arial, sans-serif',
+              letterSpacing: '6px',
+              animation: 'fadeText 0.8s ease forwards',
+              textAlign: 'center',
+              padding: '0 20px',
+            }}>
+              Easy Where Solution
+            </h1>
+          </div>
+
+          {/* BOTTOM HALF */}
+          <div style={{
+            position: 'fixed',
+            bottom: 0,
+            left: 0,
+            width: '100%',
+            height: '50%',
+            backgroundColor: '#000',
+            zIndex: 9999,
+            transform: split ? 'translateY(100%)' : 'translateY(0)',
+            transition: 'transform 0.9s cubic-bezier(0.76, 0, 0.24, 1)',
+            display: 'flex',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+            paddingTop: '10px',
+          }}>
+            <p style={{
+              fontSize: '13px',
+              color: '#555',
+              fontFamily: 'Arial, sans-serif',
+              letterSpacing: '4px',
+              animation: 'fadeText 0.8s ease forwards',
+            }}>
+              AI POWERED SOLUTIONS
+            </p>
+          </div>
+        </>
       )}
 
       {/* MAIN WEBSITE */}
@@ -70,7 +93,7 @@ export default function Home() {
         minHeight: '100vh',
         fontFamily: 'Arial, sans-serif',
         opacity: loading ? 0 : 1,
-        transition: 'opacity 0.5s ease',
+        transition: 'opacity 0.5s ease 0.2s',
       }}>
 
         {/* NAVBAR */}
