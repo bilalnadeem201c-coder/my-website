@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Easy Where Solution",
     
     description:
-      "We provide AI tools and digital business solutions.",
+      "We provide AI rankings and digital business solutions.",
 
     url: "https://my-website-phi-lake-53.vercel.app",
 
