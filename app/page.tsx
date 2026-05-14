@@ -2,7 +2,53 @@
 
 import { useState, useEffect } from "react"
 import Marquee from "react-fast-marquee"
+import { Canvas } from "@react-three/fiber"
+import { Float, OrbitControls } from "@react-three/drei"
 import "./globals.css"
+
+// ===== 3D AI ORB COMPONENT — Lavender Mist themed =====
+function AIOrb() {
+  return (
+    <div style={{ width: '100%', height: '340px', position: 'relative' }}>
+      <Canvas camera={{ position: [0, 0, 5] }}>
+        {/* LIGHTS */}
+        <ambientLight intensity={1.5} />
+        <directionalLight position={[2, 2, 5]} />
+        <pointLight position={[-3, -3, -3]} intensity={1} color="#C4B5FD" />
+
+        {/* FLOATING 3D VIOLET ORB */}
+        <Float speed={4} rotationIntensity={2} floatIntensity={3}>
+          <mesh>
+            <icosahedronGeometry args={[1.5, 1]} />
+            <meshStandardMaterial
+              color="#7C3AED"
+              emissive="#7C3AED"
+              emissiveIntensity={1.5}
+              metalness={1}
+              roughness={0.1}
+            />
+          </mesh>
+        </Float>
+
+        {/* CAMERA CONTROL */}
+        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={2} />
+      </Canvas>
+
+      {/* Soft glow underneath orb */}
+      <div style={{
+        position: 'absolute',
+        bottom: '20px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '180px',
+        height: '30px',
+        background: 'radial-gradient(ellipse, rgba(124,58,237,0.25) 0%, transparent 70%)',
+        pointerEvents: 'none',
+      }} />
+    </div>
+  )
+}
+// ===== END 3D AI ORB COMPONENT =====
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -24,7 +70,6 @@ export default function Home() {
         <>
           <div className={`preloader-top ${split ? 'split' : ''}`}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-              {/* Animated violet orb */}
               <div style={{
                 width: '48px',
                 height: '48px',
@@ -40,7 +85,6 @@ export default function Home() {
           <div className={`preloader-bottom ${split ? 'split' : ''}`}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
               <p className="preloader-sub">✦ AI POWERED SOLUTIONS ✦</p>
-              {/* Loading bar */}
               <div style={{
                 width: 'clamp(120px, 30vw, 220px)',
                 height: '2px',
@@ -61,7 +105,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Preloader keyframes injected inline */}
           <style>{`
             @keyframes pulse {
               0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(124,58,237,0.4); }
@@ -83,8 +126,8 @@ export default function Home() {
           <nav role="navigation" aria-label="Main Navigation" className="navbar">
             <a href="/" className="navbar-logo">
               <span style={{ color: '#7C3AED' }}>Easy</span>
-              <span style={{ color: '#7C3AED' }}>Where </span>
-              <span style={{ color: '#7C3AED' }}>Solution</span>
+              <span style={{ color: '#1E1040' }}> Where </span>
+              <span style={{ color: '#4C1D95' }}>Solution</span>
             </a>
             <div role="menubar" className="navbar-links">
               <a href="#home">Home</a>
@@ -99,23 +142,31 @@ export default function Home() {
         {/* ===== HERO ===== */}
         <section id="home" aria-labelledby="hero-heading" className="hero">
 
+          {/* BADGE */}
           <p className="hero-badge">✦ AI That Works for You</p>
 
+          {/* H1 TITLE */}
           <h1 id="hero-heading" className="hero-title">
             Your AI Assistant to<br />Scale Your Business
           </h1>
 
+          {/* DESCRIPTION */}
           <p className="hero-desc">
             Easy Where Solution puts all your business in one place.
             See what is working. Fix what is not. Make smarter moves with AI.
           </p>
 
+          {/* ===== 3D AI ORB — placed after p and h1, before buttons ===== */}
+          <AIOrb />
+          {/* ===== END 3D AI ORB ===== */}
+
+          {/* CTA BUTTONS */}
           <div className="hero-btns">
             <a href="#contact" className="btn-primary">Get Started →</a>
             <a href="#solutions" className="btn-secondary">Learn More</a>
           </div>
 
-          {/* Trust badge */}
+          {/* TRUST BADGE */}
           <div style={{
             marginTop: '48px',
             display: 'flex',
@@ -182,10 +233,10 @@ export default function Home() {
           <h2 id="steps-heading" className="section-title">4 Simple Steps</h2>
           <div className="steps-grid">
             {[
-              { num: '01', title: 'Onboard & Connect', desc: 'We set up your profile and connect your digital assets easily.', icon: '🔗' },
-              { num: '02', title: 'AI Audit & Launch',  desc: 'AI analyzes your presence and creates a custom action plan.',   icon: '🧠' },
-              { num: '03', title: 'Campaigns Run',      desc: 'Your campaigns go live and are auto managed in real time.',     icon: '📣' },
-              { num: '04', title: 'Track Results',      desc: 'See live visual reports and data anytime you want.',            icon: '📈' },
+              { num: '01', title: 'Onboard & Connect', desc: 'We set up your profile and connect your digital assets easily.',       icon: '🔗' },
+              { num: '02', title: 'AI Audit & Launch',  desc: 'AI analyzes your presence and creates a custom action plan.',          icon: '🧠' },
+              { num: '03', title: 'Campaigns Run',      desc: 'Your campaigns go live and are auto managed in real time.',            icon: '📣' },
+              { num: '04', title: 'Track Results',      desc: 'See live visual reports and data anytime you want.',                   icon: '📈' },
             ].map((step) => (
               <article key={step.num} className="step-card">
                 <p style={{ fontSize: '28px', marginBottom: '12px' }}>{step.icon}</p>
