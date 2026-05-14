@@ -1,21 +1,23 @@
 /* ===== GOOGLE FONTS ===== */
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Syne:wght@400;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
 
 /* ===== COLOR VARIABLES ===== */
 :root {
-  --green: #00FF94;
-  --green-dark: #00CC76;
-  --green-dim: rgba(0, 255, 148, 0.08);
-  --green-glow: rgba(0, 255, 148, 0.25);
-  --green-border: rgba(0, 255, 148, 0.2);
-  --bg: #060810;
-  --bg2: #0A0D18;
-  --border: #111827;
-  --gray: #4B5563;
-  --gray-light: #6B7280;
-  --white: #E8FFF5;
-  --glass: rgba(0, 255, 148, 0.04);
-  --glass-border: rgba(0, 255, 148, 0.12);
+  --violet: #7C3AED;
+  --violet-dark: #5B21B6;
+  --violet-dim: rgba(124, 58, 237, 0.08);
+  --violet-glow: rgba(124, 58, 237, 0.25);
+  --violet-border: rgba(124, 58, 237, 0.2);
+  --bg: #F5F3FF;
+  --bg2: #EDE9FE;
+  --border: #DDD6FE;
+  --gray: #6B7280;
+  --gray-light: #4C1D95;
+  --white: #1E1040;
+  --glass: rgba(124, 58, 237, 0.04);
+  --glass-border: rgba(124, 58, 237, 0.12);
+  --text-muted: #7C6FA0;
+  --card-bg: #FFFFFF;
 }
 
 /* ===== RESET ===== */
@@ -25,7 +27,6 @@
   box-sizing: border-box;
 }
 
-/* THIS IS THE KEY FIX — prevents horizontal overflow on all screens */
 html, body {
   overflow-x: hidden;
   width: 100%;
@@ -36,10 +37,10 @@ html, body {
 body {
   background-color: var(--bg);
   color: var(--white);
-  font-family: 'Syne', sans-serif;
+  font-family: 'Inter', sans-serif;
   background-image:
-    linear-gradient(rgba(0, 255, 148, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 148, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(124, 58, 237, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124, 58, 237, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
   background-attachment: fixed;
 }
@@ -80,20 +81,20 @@ body {
 .preloader-bottom.split { transform: translateY(100%); }
 
 .preloader-title {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Cormorant Garamond', serif;
   font-size: clamp(16px, 5vw, 44px);
-  color: var(--green);
+  color: var(--violet);
   letter-spacing: clamp(2px, 2vw, 8px);
   text-align: center;
   padding: 0 20px;
   animation: fadeText 0.8s ease forwards;
-  text-shadow: 0 0 30px var(--green), 0 0 60px var(--green-glow);
+  text-shadow: 0 0 30px var(--violet-glow), 0 0 60px var(--violet-glow);
 }
 
 .preloader-sub {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(9px, 2vw, 11px);
-  color: var(--green);
+  color: var(--violet);
   letter-spacing: clamp(2px, 1vw, 5px);
   animation: fadeText 0.8s ease forwards;
   opacity: 0.6;
@@ -121,7 +122,7 @@ body {
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: rgba(6, 8, 16, 0.92);
+  background-color: rgba(245, 243, 255, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   z-index: 100;
@@ -129,12 +130,13 @@ body {
 }
 
 .navbar-logo {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: clamp(11px, 2vw, 16px);
-  color: var(--green);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(14px, 2vw, 20px);
+  color: var(--violet);
   text-decoration: none;
   letter-spacing: 2px;
-  text-shadow: 0 0 20px var(--green-glow);
+  font-weight: 700;
+  text-shadow: 0 0 20px var(--violet-glow);
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -145,43 +147,43 @@ body {
 }
 
 .navbar-links a {
-  font-family: 'Share Tech Mono', monospace;
-  color: var(--gray-light);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
   text-decoration: none;
   font-size: 13px;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   transition: color 0.2s;
   white-space: nowrap;
 }
 
 .navbar-links a:hover {
-  color: var(--green);
-  text-shadow: 0 0 12px var(--green-glow);
+  color: var(--violet);
+  text-shadow: 0 0 12px var(--violet-glow);
 }
 
 .navbar-btn {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Inter', sans-serif;
   background-color: transparent;
-  color: var(--green);
+  color: var(--violet);
   padding: 8px 18px;
-  border-radius: 4px;
+  border-radius: 6px;
   text-decoration: none;
   font-size: 12px;
-  letter-spacing: 1px;
-  border: 1px solid var(--green-border);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--violet-border);
   transition: all 0.2s;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 .navbar-btn:hover {
-  background: var(--green-dim);
-  box-shadow: 0 0 20px var(--green-glow);
-  border-color: var(--green);
+  background: var(--violet-dim);
+  box-shadow: 0 0 20px var(--violet-glow);
+  border-color: var(--violet);
 }
 
 /* ===== HERO ===== */
-/* overflow:hidden clips the glow blob — this is what stops the horizontal scroll */
 .hero {
   display: flex;
   flex-direction: column;
@@ -200,7 +202,7 @@ body {
   transform: translate(-50%, -50%);
   width: min(600px, 90vw);
   height: min(600px, 90vw);
-  background: radial-gradient(circle, rgba(0, 255, 148, 0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.07) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -208,25 +210,28 @@ body {
 .hero > * { position: relative; z-index: 1; }
 
 .hero-badge {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Inter', sans-serif;
   background: var(--glass);
-  color: var(--green);
+  color: var(--violet);
   padding: 6px 16px;
-  border-radius: 4px;
+  border-radius: 20px;
   font-size: clamp(9px, 2vw, 11px);
+  font-weight: 600;
   margin-bottom: 24px;
   border: 1px solid var(--glass-border);
   display: inline-block;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 .hero-title {
-  font-size: clamp(28px, 6vw, 80px);
-  font-weight: 800;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 7vw, 88px);
+  font-weight: 700;
   line-height: 1.1;
   margin-bottom: 24px;
   letter-spacing: -1px;
-  background: linear-gradient(135deg, var(--white) 30%, var(--green) 100%);
+  background: linear-gradient(135deg, var(--white) 30%, var(--violet) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -234,9 +239,9 @@ body {
 }
 
 .hero-desc {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: clamp(13px, 2vw, 17px);
-  color: var(--gray-light);
+  color: var(--text-muted);
   max-width: 520px;
   width: 100%;
   margin-bottom: 40px;
@@ -253,44 +258,45 @@ body {
 
 /* ===== BUTTONS ===== */
 .btn-primary {
-  font-family: 'Share Tech Mono', monospace;
-  background-color: var(--green);
-  color: #060810;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--violet);
+  color: #FFFFFF;
   padding: 13px 32px;
-  border-radius: 4px;
+  border-radius: 8px;
   text-decoration: none;
   font-size: clamp(12px, 2vw, 14px);
-  font-weight: 800;
+  font-weight: 600;
   display: inline-block;
-  letter-spacing: 2px;
+  letter-spacing: 0.5px;
   transition: all 0.2s;
-  box-shadow: 0 0 30px var(--green-glow);
+  box-shadow: 0 4px 24px var(--violet-glow);
 }
 
 .btn-primary:hover {
-  background-color: var(--green-dark);
-  box-shadow: 0 0 50px rgba(0, 255, 148, 0.5);
+  background-color: var(--violet-dark);
+  box-shadow: 0 8px 40px rgba(124, 58, 237, 0.4);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Inter', sans-serif;
   background-color: transparent;
-  color: var(--white);
+  color: var(--violet);
   padding: 13px 32px;
-  border-radius: 4px;
-  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  border: 1px solid var(--violet-border);
   text-decoration: none;
   font-size: clamp(12px, 2vw, 14px);
+  font-weight: 500;
   display: inline-block;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   transition: all 0.2s;
 }
 
 .btn-secondary:hover {
-  border-color: var(--green);
-  color: var(--green);
-  background: var(--green-dim);
+  border-color: var(--violet);
+  background: var(--violet-dim);
+  box-shadow: 0 4px 20px var(--violet-glow);
 }
 
 /* ===== MARQUEE ===== */
@@ -304,26 +310,28 @@ body {
 }
 
 .marquee-label {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Inter', sans-serif;
   text-align: center;
-  color: var(--gray);
+  color: var(--text-muted);
   margin-bottom: 16px;
   font-size: 10px;
+  font-weight: 600;
   letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
 .marquee-item {
-  font-family: 'Share Tech Mono', monospace;
-  background: var(--glass);
+  font-family: 'Inter', sans-serif;
+  background: var(--card-bg);
   border: 1px solid var(--glass-border);
-  border-radius: 4px;
+  border-radius: 20px;
   padding: 8px 18px;
   margin-right: 10px;
   font-size: 12px;
-  font-weight: 700;
-  color: var(--gray-light);
+  font-weight: 600;
+  color: var(--violet-dark);
   white-space: nowrap;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 /* ===== STATS ===== */
@@ -346,19 +354,20 @@ body {
 .stat-item:hover { background-color: var(--bg2); }
 
 .stat-number {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: clamp(26px, 5vw, 52px);
-  font-weight: 800;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 5vw, 56px);
+  font-weight: 700;
   margin: 0 0 8px 0;
-  color: var(--green);
-  text-shadow: 0 0 30px var(--green-glow);
+  color: var(--violet);
+  text-shadow: 0 0 30px var(--violet-glow);
 }
 
 .stat-label {
-  font-family: 'Share Tech Mono', monospace;
-  color: var(--gray);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
   font-size: clamp(9px, 1.5vw, 11px);
   margin: 0;
+  font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
@@ -370,20 +379,24 @@ body {
 }
 
 .section-label {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Inter', sans-serif;
   text-align: center;
-  color: var(--green);
+  color: var(--violet);
   margin-bottom: 12px;
   font-size: 11px;
+  font-weight: 700;
   letter-spacing: 5px;
+  text-transform: uppercase;
   opacity: 0.8;
 }
 
 .section-title {
+  font-family: 'Cormorant Garamond', serif;
   text-align: center;
-  font-size: clamp(24px, 4vw, 48px);
-  font-weight: 800;
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 700;
   margin-bottom: 50px;
+  color: var(--white);
 }
 
 .steps-grid {
@@ -395,57 +408,60 @@ body {
   width: 100%;
 }
 
-/* ===== GLASSMORPHISM CARDS ===== */
+/* ===== CARDS ===== */
 .step-card {
-  background: var(--glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: var(--card-bg);
   padding: 32px 24px;
-  border-radius: 12px;
+  border-radius: 16px;
   border: 1px solid var(--glass-border);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   width: 100%;
+  box-shadow: 0 2px 16px rgba(124, 58, 237, 0.04);
 }
 
 .step-card::before {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--green), transparent);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--violet), transparent);
   opacity: 0;
   transition: opacity 0.3s;
 }
 
 .step-card:hover {
-  border-color: var(--green-border);
-  background: rgba(0, 255, 148, 0.06);
+  border-color: var(--violet-border);
+  background: #FDFCFF;
   transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0, 255, 148, 0.08);
+  box-shadow: 0 20px 60px rgba(124, 58, 237, 0.12);
 }
 
 .step-card:hover::before { opacity: 1; }
 
 .step-num {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
-  color: var(--green);
+  font-weight: 700;
+  color: var(--violet);
   margin: 0 0 16px 0;
   opacity: 0.6;
   letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .step-title {
-  font-size: clamp(15px, 2vw, 18px);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(17px, 2vw, 22px);
   font-weight: 700;
   margin-bottom: 10px;
+  color: var(--white);
 }
 
 .step-desc {
-  font-family: 'Share Tech Mono', monospace;
-  color: var(--gray-light);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
   line-height: 1.8;
   font-size: clamp(12px, 1.5vw, 14px);
   margin: 0;
@@ -467,17 +483,18 @@ body {
 }
 
 .footer-brand-name {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: clamp(13px, 2vw, 16px);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2vw, 20px);
   margin: 0 0 12px 0;
-  color: var(--green);
+  color: var(--violet);
   letter-spacing: 2px;
-  text-shadow: 0 0 20px var(--green-glow);
+  font-weight: 700;
+  text-shadow: 0 0 20px var(--violet-glow);
 }
 
 .footer-brand-desc {
-  font-family: 'Share Tech Mono', monospace;
-  color: var(--gray);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
   font-size: 13px;
   line-height: 1.8;
   margin: 0 0 20px 0;
@@ -486,15 +503,15 @@ body {
 .social-icons { display: flex; gap: 10px; flex-wrap: wrap; }
 
 .social-icon {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Inter', sans-serif;
   width: 36px; height: 36px;
-  background: var(--glass);
+  background: var(--card-bg);
   border: 1px solid var(--glass-border);
-  border-radius: 6px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gray);
+  color: var(--text-muted);
   text-decoration: none;
   font-size: 12px;
   font-weight: 700;
@@ -502,19 +519,19 @@ body {
 }
 
 .social-icon:hover {
-  border-color: var(--green-border);
-  color: var(--green);
-  background: var(--green-dim);
-  box-shadow: 0 0 16px var(--green-glow);
+  border-color: var(--violet-border);
+  color: var(--violet);
+  background: var(--violet-dim);
+  box-shadow: 0 0 16px var(--violet-glow);
 }
 
 .footer-col-title {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 700;
   color: var(--white);
   margin: 0 0 16px 0;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase;
 }
 
@@ -525,29 +542,29 @@ body {
 }
 
 .footer-links a {
-  font-family: 'Share Tech Mono', monospace;
-  color: var(--gray);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
   text-decoration: none;
   font-size: 13px;
   transition: color 0.2s;
 }
 
-.footer-links a:hover { color: var(--green); }
+.footer-links a:hover { color: var(--violet); }
 
 .newsletter-desc {
-  font-family: 'Share Tech Mono', monospace;
-  color: var(--gray);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
   font-size: 13px;
   line-height: 1.7;
   margin: 0 0 16px 0;
 }
 
 .newsletter-success {
-  font-family: 'Share Tech Mono', monospace;
-  color: var(--green);
+  font-family: 'Inter', sans-serif;
+  color: var(--violet);
   font-size: 13px;
   font-weight: 700;
-  text-shadow: 0 0 12px var(--green-glow);
+  text-shadow: 0 0 12px var(--violet-glow);
 }
 
 .newsletter-form {
@@ -557,10 +574,10 @@ body {
 }
 
 .newsletter-input {
-  font-family: 'Share Tech Mono', monospace;
-  background: var(--glass);
+  font-family: 'Inter', sans-serif;
+  background: var(--card-bg);
   border: 1px solid var(--glass-border);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 10px 14px;
   color: var(--white);
   font-size: 13px;
@@ -569,32 +586,32 @@ body {
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.newsletter-input::placeholder { color: var(--gray); }
+.newsletter-input::placeholder { color: var(--text-muted); }
 
 .newsletter-input:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 2px var(--green-dim);
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px var(--violet-dim);
 }
 
 .newsletter-btn {
-  font-family: 'Share Tech Mono', monospace;
-  background-color: var(--green);
-  color: #060810;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--violet);
+  color: #FFFFFF;
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 8px;
   border: none;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   width: 100%;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   transition: all 0.2s;
-  box-shadow: 0 0 20px var(--green-glow);
+  box-shadow: 0 4px 20px var(--violet-glow);
 }
 
 .newsletter-btn:hover {
-  background-color: var(--green-dark);
-  box-shadow: 0 0 40px rgba(0, 255, 148, 0.4);
+  background-color: var(--violet-dark);
+  box-shadow: 0 8px 40px rgba(124, 58, 237, 0.4);
 }
 
 .footer-bottom {
@@ -608,8 +625,8 @@ body {
 }
 
 .footer-copy {
-  font-family: 'Share Tech Mono', monospace;
-  color: var(--gray);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
   font-size: 12px;
   margin: 0;
 }
@@ -617,14 +634,14 @@ body {
 .footer-legal { display: flex; gap: 20px; flex-wrap: wrap; }
 
 .footer-legal a {
-  font-family: 'Share Tech Mono', monospace;
-  color: var(--gray);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-muted);
   text-decoration: none;
   font-size: 12px;
   transition: color 0.2s;
 }
 
-.footer-legal a:hover { color: var(--green); }
+.footer-legal a:hover { color: var(--violet); }
 
 /* =====================================================
    TABLET — max 768px
@@ -634,7 +651,7 @@ body {
   .navbar-links  { display: none; }
 
   .hero          { padding: 60px 16px 50px; }
-  .hero-title    { font-size: clamp(26px, 7vw, 42px); }
+  .hero-title    { font-size: clamp(32px, 8vw, 48px); }
   .hero-btns     { flex-direction: column; align-items: center; }
   .btn-primary,
   .btn-secondary { width: 100%; max-width: 300px; text-align: center; }
@@ -654,17 +671,17 @@ body {
    SMALL PHONES — max 480px
    ===================================================== */
 @media (max-width: 480px) {
-  .navbar-logo   { font-size: 11px; letter-spacing: 1px; }
+  .navbar-logo   { font-size: 14px; letter-spacing: 1px; }
   .navbar-btn    { padding: 6px 12px; font-size: 11px; }
 
   .hero          { padding: 50px 14px 40px; }
-  .hero-title    { font-size: clamp(22px, 8vw, 30px); }
-  .hero-desc     { font-size: 12px; }
+  .hero-title    { font-size: clamp(28px, 9vw, 36px); }
+  .hero-desc     { font-size: 13px; }
   .hero-badge    { font-size: 9px; letter-spacing: 2px; }
 
-  .stat-number   { font-size: clamp(20px, 6vw, 28px); }
+  .stat-number   { font-size: clamp(24px, 7vw, 32px); }
   .stat-label    { font-size: 9px; letter-spacing: 1px; }
 
-  .section-title { font-size: clamp(20px, 6vw, 28px); }
+  .section-title { font-size: clamp(24px, 7vw, 32px); }
   .step-card     { padding: 20px 14px; }
 }
