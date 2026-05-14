@@ -1,5 +1,7 @@
 "use client"
-import { useState, useEffect } from "react"
+
+import { useState, useEffect, useRef } from "react"
+import gsap from "gsap"
 import Marquee from "react-fast-marquee"
 import "./globals.css"
 
