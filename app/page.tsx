@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react"
 import Marquee from "react-fast-marquee"
-import "./styles.css"
+import "./globals.css"
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
