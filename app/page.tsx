@@ -83,8 +83,8 @@ export default function Home() {
           <nav role="navigation" aria-label="Main Navigation" className="navbar">
             <a href="/" className="navbar-logo">
               <span style={{ color: '#7C3AED' }}>Easy</span>
-              <span style={{ color: '#1E1040' }}> Where </span>
-              <span style={{ color: '#4C1D95' }}>Solution</span>
+              <span style={{ color: '#7C3AED' }}>Where </span>
+              <span style={{ color: '#7C3AED' }}>Solution</span>
             </a>
             <div role="menubar" className="navbar-links">
               <a href="#home">Home</a>
