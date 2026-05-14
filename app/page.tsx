@@ -196,4 +196,3 @@ export default function Home() {
     </>
   )
 }
-<link rel="stylesheet" href="globals.css" />
