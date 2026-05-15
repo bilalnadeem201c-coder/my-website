@@ -19,13 +19,13 @@ function AIOrb() {
         {/* FLOATING 3D VIOLET ORB */}
         <Float speed={4} rotationIntensity={2} floatIntensity={3}>
           <mesh>
-            <icosahedronGeometry args={[1.5, 1]} />
+           <icosahedronGeometry args={[1.5, 4]} />
             <meshStandardMaterial
-              color="#7C3AED"
-              emissive="#7C3AED"
-              emissiveIntensity={1.5}
-              metalness={1}
-              roughness={0.1}
+            color="#7C3AED"
+            emissive="#7C3AED"
+            emissiveIntensity={1.5}
+            metalness={0.8}
+            roughness={0.05}  // lower = more mirror-like
             />
           </mesh>
         </Float>
