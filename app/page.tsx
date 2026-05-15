@@ -62,7 +62,7 @@ export default function Home() {
       setTimeout(() => setLoading(false), 1000)
     }, 2200)
   }, [])
-
+  
   return (
     <>
       {/* ===== PRELOADER — Lavender Mist themed ===== */}
@@ -339,3 +339,26 @@ export default function Home() {
     </>
   )
 }
+<div className="hero-orbit">
+
+  {/* PURPLE ORB */}
+  <div className="orb"></div>
+
+  {/* ORBITING LOGOS */}
+  <div className="orbit">
+
+    <img src="/logos/openai.svg" className="openai.svg" alt="OpenAI" />
+
+    <img src="/logos/vercel.svg" className="google.svg" alt="Vercel" />
+
+    <img src="/logos/next.svg" className="googlemap.svg" alt="NextJS" />
+
+    <img src="/logos/globe.svg" className="html5.svg" alt="Globe" />
+
+    <img src="/logos/file.svg" className="meta.svg" alt="File" />
+
+    <img src="/logos/window.svg" className="google.svg" alt="Window" />
+
+  </div>
+
+</div>
