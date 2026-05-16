@@ -366,17 +366,17 @@ export default function Home() {
             See what is working. Fix what is not. Make smarter moves with AI.
           </p>
 
+          {/* 3D ORB + ORBITING LOGOS — above buttons */}
+          <OrbWithLogos />
+
           {/* CTA BUTTONS */}
           <div className="hero-btns">
             <a href="#contact" className="btn-primary">Get Started →</a>
             <a href="#solutions" className="btn-secondary">Learn More</a>
           </div>
 
-          {/* ✅ PROBLEM / SOLUTION — RIGHT AFTER BUTTONS */}
+          {/* ✅ PROBLEM / SOLUTION — right after buttons */}
           <ProblemSolution />
-
-          {/* 3D ORB + ORBITING LOGOS */}
-          <OrbWithLogos />
 
           {/* TRUST BADGE */}
           <div style={{
