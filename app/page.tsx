@@ -37,7 +37,6 @@ function OrbWithLogos() {
       height: '340px',
       margin: '30px auto',
     }}>
-      {/* 3D ORB CANVAS */}
       <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
         <Canvas camera={{ position: [0, 0, 5] }}>
           <ambientLight intensity={1.5} />
@@ -59,7 +58,6 @@ function OrbWithLogos() {
         </Canvas>
       </div>
 
-      {/* ORBIT RING */}
       <div style={{
         position: 'absolute',
         top: '50%', left: '50%',
@@ -72,7 +70,6 @@ function OrbWithLogos() {
         pointerEvents: 'none',
       }} />
 
-      {/* ORBITING LOGOS */}
       {logos.map((logo, i) => {
         const logoAngle = ((angle + (i * 360) / logos.length) * Math.PI) / 180
         const x = Math.cos(logoAngle) * orbitRadius
@@ -93,16 +90,11 @@ function OrbWithLogos() {
             boxShadow: `0 0 14px ${logo.color}44`,
             zIndex: 3,
           }}>
-            <img
-              src={logo.src}
-              alt={logo.alt}
-              style={{ width: '24px', height: '24px', objectFit: 'contain' }}
-            />
+            <img src={logo.src} alt={logo.alt} style={{ width: '24px', height: '24px', objectFit: 'contain' }} />
           </div>
         )
       })}
 
-      {/* GLOW UNDERNEATH */}
       <div style={{
         position: 'absolute',
         bottom: '10px', left: '50%',
@@ -141,83 +133,36 @@ function ProblemSolution() {
   }, [])
 
   const problems = [
-    {
-      num: "01",
-      title: "Feeling Ignored",
-      desc: "You hired a marketing agency, paid thousands, and now they barely respond to your emails. No results. No answers."
-    },
-    {
-      num: "02",
-      title: "Invisible on Google",
-      desc: "Your competitors show up first on Google Maps and Search. Your business is buried on page 3 where no one looks."
-    },
-    {
-      num: "03",
-      title: "Losing Leads Daily",
-      desc: "Missed calls, slow follow-ups, and no system in place. Every unanswered call is money walking out the door."
-    },
-    {
-      num: "04",
-      title: "Wasting Ad Budget",
-      desc: "Running Google or Meta Ads with zero ROI? Wrong targeting and poor creatives burn your budget with nothing to show."
-    },
+    { num: "01", title: "Feeling Ignored", desc: "You hired a marketing agency, paid thousands, and now they barely respond to your emails. No results. No answers." },
+    { num: "02", title: "Invisible on Google", desc: "Your competitors show up first on Google Maps and Search. Your business is buried on page 3 where no one looks." },
+    { num: "03", title: "Losing Leads Daily", desc: "Missed calls, slow follow-ups, and no system in place. Every unanswered call is money walking out the door." },
+    { num: "04", title: "Wasting Ad Budget", desc: "Running Google or Meta Ads with zero ROI? Wrong targeting and poor creatives burn your budget with nothing to show." },
   ]
 
   const solutions = [
-    {
-      icon: "✦",
-      title: "Always Reachable, Always Responsive",
-      desc: "24/7 direct access through our Client Portal. Real humans + AI working around the clock so you're never left waiting."
-    },
-    {
-      icon: "✦",
-      title: "Dominate Local Search",
-      desc: "We push your business to the top of Google Maps and Search using aggressive SEO strategies that actually work."
-    },
-    {
-      icon: "✦",
-      title: "Zero Missed Opportunities",
-      desc: "Our AI CRM captures every lead, follows up instantly, and books appointments — so you never lose a customer again."
-    },
-    {
-      icon: "✦",
-      title: "Ads That Actually Convert",
-      desc: "Data-driven Google & Meta campaigns with high-converting creatives, precise targeting, and full monthly reporting."
-    },
+    { icon: "✦", title: "Always Reachable, Always Responsive", desc: "24/7 direct access through our Client Portal. Real humans + AI working around the clock so you're never left waiting." },
+    { icon: "✦", title: "Dominate Local Search", desc: "We push your business to the top of Google Maps and Search using aggressive SEO strategies that actually work." },
+    { icon: "✦", title: "Zero Missed Opportunities", desc: "Our AI CRM captures every lead, follows up instantly, and books appointments — so you never lose a customer again." },
+    { icon: "✦", title: "Ads That Actually Convert", desc: "Data-driven Google & Meta campaigns with high-converting creatives, precise targeting, and full monthly reporting." },
   ]
 
   return (
-    <section
-      ref={sectionRef}
-      id="problem-solution"
-      aria-labelledby="ps-heading"
-      className="ps-section"
-    >
-      {/* HEADER */}
+    <section ref={sectionRef} id="problem-solution" aria-labelledby="ps-heading" className="ps-section">
       <div className={`ps-header ${visible ? 'ps-visible' : ''}`}>
         <p className="ps-label">✦ THE REAL PROBLEM ✦</p>
-        <h2 id="ps-heading" className="ps-title">
-          The Problem vs Our Solution
-        </h2>
+        <h2 id="ps-heading" className="ps-title">The Problem vs Our Solution</h2>
         <p className="ps-subtitle">
-          We built Easy Where Solution because we understand the frustrations
-          business owners face with marketing — and we built a better way.
+          We built Easy Where Solution because we understand the frustrations business owners face with marketing — and we built a better way.
         </p>
       </div>
 
-      {/* TWO BOXES */}
       <div className="ps-grid">
-
-        {/* LEFT — PROBLEMS */}
         <div className={`ps-left ${leftVisible ? 'ps-left-visible' : ''}`}>
           <div className="ps-box-header">
             <p className="ps-box-label ps-box-label--problem">MORE THAN LIKELY, YOU ARE</p>
             <h3 className="ps-box-title">Struggling With These Issues</h3>
-            <p className="ps-box-desc">
-              Sound familiar? You're not alone. Most business owners face these exact problems.
-            </p>
+            <p className="ps-box-desc">Sound familiar? You're not alone. Most business owners face these exact problems.</p>
           </div>
-
           {problems.map((p) => (
             <div key={p.num} className="ps-problem-item">
               <span className="ps-problem-num">{p.num}</span>
@@ -227,22 +172,17 @@ function ProblemSolution() {
               </div>
             </div>
           ))}
-
           <div className="ps-quote">
             "It's tough to trust anyone in the marketing space when you've been burned by empty promises before."
           </div>
         </div>
 
-        {/* RIGHT — SOLUTIONS */}
         <div className={`ps-right ${rightVisible ? 'ps-right-visible' : ''}`}>
           <div className="ps-box-header">
             <p className="ps-box-label ps-box-label--solution">OUR SOLUTION</p>
             <h3 className="ps-box-title">Here's How We Fix It</h3>
-            <p className="ps-box-desc">
-              We don't make promises — we build systems that deliver real, measurable results.
-            </p>
+            <p className="ps-box-desc">We don't make promises — we build systems that deliver real, measurable results.</p>
           </div>
-
           {solutions.map((s, i) => (
             <div key={i} className="ps-solution-item">
               <div className="ps-solution-icon">{s.icon}</div>
@@ -252,7 +192,6 @@ function ProblemSolution() {
               </div>
             </div>
           ))}
-
           <div className="ps-guarantee">
             <span className="ps-guarantee-badge">GUARANTEED</span>
             <p className="ps-guarantee-text">
@@ -260,12 +199,228 @@ function ProblemSolution() {
             </p>
           </div>
         </div>
-
       </div>
     </section>
   )
 }
 // ===== END PROBLEM / SOLUTION =====
+
+
+// ===== SERVICES DATA =====
+const SERVICES = [
+  {
+    num: "01",
+    tag: "GROW YOUR BRAND",
+    title: "Digital Marketing",
+    subtitle: "Full-Funnel Strategy That Actually Converts",
+    desc: "We craft data-driven digital marketing strategies that move people from strangers to loyal customers. From content to campaigns, every touchpoint is intentional and measured for real ROI.",
+    features: [
+      "Brand identity & messaging strategy",
+      "Content marketing & social media management",
+      "Email campaigns & automation sequences",
+      "Monthly performance reports & insights",
+    ],
+    icon: "📡",
+  },
+  {
+    num: "02",
+    tag: "BUILD YOUR PRESENCE",
+    title: "Web Development",
+    subtitle: "High-Converting Websites Built to Perform",
+    desc: "Your website is your #1 salesperson. We design and develop lightning-fast, mobile-first websites and landing pages engineered to turn visitors into leads — day and night.",
+    features: [
+      "Custom landing pages & full websites",
+      "Speed-optimised & mobile-first builds",
+      "CRM & third-party integrations",
+      "A/B tested layouts for maximum conversion",
+    ],
+    icon: "🌐",
+  },
+  {
+    num: "03",
+    tag: "PAID SOCIAL",
+    title: "Meta Ads",
+    subtitle: "Scroll-Stopping Ads That Fill Your Pipeline",
+    desc: "We run Meta advertising campaigns on Facebook and Instagram that reach your exact audience at the perfect moment. From creative to targeting to retargeting — we handle it all.",
+    features: [
+      "Facebook & Instagram campaign management",
+      "High-converting ad creative & copywriting",
+      "Audience segmentation & lookalike targeting",
+      "Retargeting funnels to recover lost leads",
+    ],
+    icon: "📘",
+  },
+  {
+    num: "04",
+    tag: "PAID SEARCH",
+    title: "Google Ads",
+    subtitle: "Appear When It Matters Most — At the Top",
+    desc: "Capture high-intent buyers exactly when they're searching for your solution. Our Google Ads campaigns are built around profit, not just clicks — with ruthless bid optimisation and clear reporting.",
+    features: [
+      "Search, Display & YouTube campaign setup",
+      "Keyword research & negative keyword strategy",
+      "Landing page alignment for Quality Score",
+      "Weekly bid management & monthly reporting",
+    ],
+    icon: "🔍",
+  },
+  {
+    num: "05",
+    tag: "LONG-TERM GROWTH",
+    title: "SEO",
+    subtitle: "Dominate Google Search & Maps — Organically",
+    desc: "We push your business to the top of Google Search and Maps through aggressive technical SEO, local optimisation, and content that ranks. Results that compound month after month.",
+    features: [
+      "Technical SEO audits & on-page optimisation",
+      "Google Business Profile & local SEO",
+      "Authority backlink building campaigns",
+      "Keyword tracking & competitor gap analysis",
+    ],
+    icon: "📈",
+  },
+]
+
+// ===== SERVICES SECTION WITH STICKY SCROLL =====
+function ServicesSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [headerVisible, setHeaderVisible] = useState(false)
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  // Header fade-in
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setHeaderVisible(true) },
+      { threshold: 0.1 }
+    )
+    if (sectionRef.current) obs.observe(sectionRef.current)
+    return () => obs.disconnect()
+  }, [])
+
+  // Scroll-spy: track which card is centred in viewport
+  useEffect(() => {
+    const handleScroll = () => {
+      const mid = window.scrollY + window.innerHeight * 0.45
+      let current = 0
+      cardRefs.current.forEach((card, i) => {
+        if (!card) return
+        const top = card.getBoundingClientRect().top + window.scrollY
+        if (mid >= top) current = i
+      })
+      setActiveIndex(current)
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const scrollTo = (i: number) => {
+    cardRefs.current[i]?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+
+  return (
+    <section id="services" ref={sectionRef} className="srv-section" aria-labelledby="srv-heading">
+
+      {/* ── HEADER ── */}
+      <div className={`srv-header ${headerVisible ? 'srv-header-visible' : ''}`}>
+        <p className="srv-header-tag">✦ WHAT WE DO ✦</p>
+        <h2 id="srv-heading" className="srv-header-title">
+          Services Built to Scale<br />Your Business Faster
+        </h2>
+        <p className="srv-header-sub">
+          From paid ads to organic growth — every service you need to dominate
+          your market, all under one roof, all working together.
+        </p>
+      </div>
+
+      {/* ── STICKY SCROLL BODY ── */}
+      <div className="srv-body">
+
+        {/* LEFT — sticky panel */}
+        <div className="srv-left">
+
+          {/* Step navigator dots */}
+          <nav className="srv-nav" aria-label="Services navigation">
+            {SERVICES.map((s, i) => (
+              <button
+                key={s.num}
+                className={`srv-nav-item ${i === activeIndex ? 'srv-nav-active' : ''}`}
+                onClick={() => scrollTo(i)}
+                aria-label={`Go to ${s.title}`}
+              >
+                <span className="srv-nav-dot" />
+                <span className="srv-nav-label">{s.title}</span>
+                <span className="srv-nav-num">{s.num}</span>
+              </button>
+            ))}
+          </nav>
+
+          {/* Live preview card */}
+          <div className="srv-preview" aria-live="polite">
+            <p className="srv-preview-tag">{SERVICES[activeIndex].tag}</p>
+            <div className="srv-preview-icon">{SERVICES[activeIndex].icon}</div>
+            <h3 className="srv-preview-title">{SERVICES[activeIndex].title}</h3>
+            <p className="srv-preview-sub">{SERVICES[activeIndex].subtitle}</p>
+            <div className="srv-preview-track">
+              <div
+                className="srv-preview-bar"
+                style={{ width: `${((activeIndex + 1) / SERVICES.length) * 100}%` }}
+              />
+            </div>
+            <p className="srv-preview-count">
+              {activeIndex + 1} <span>/ {SERVICES.length}</span>
+            </p>
+          </div>
+
+        </div>
+
+        {/* RIGHT — scrolling cards */}
+        <div className="srv-right">
+          {SERVICES.map((s, i) => (
+            <div
+              key={s.num}
+              ref={el => { cardRefs.current[i] = el }}
+              className={`srv-card ${i === activeIndex ? 'srv-card-active' : ''}`}
+            >
+              <span className="srv-card-icon">{s.icon}</span>
+              <p className="srv-card-num">Service {s.num}</p>
+              <h3 className="srv-card-title">{s.title}</h3>
+              <p className="srv-card-subtitle">{s.subtitle}</p>
+              <p className="srv-card-desc">{s.desc}</p>
+
+              <ul className="srv-features">
+                {s.features.map((f, fi) => (
+                  <li key={fi} className="srv-feature">
+                    <span className="srv-feature-check" aria-hidden="true">✓</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <a href="#contact" className="srv-card-cta">
+                Get Started with {s.title} <span className="srv-cta-arrow">→</span>
+              </a>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      {/* ── BOTTOM CTA STRIP ── */}
+      <div className="srv-cta-strip">
+        <span className="srv-cta-badge">✦ ALL SERVICES INCLUDED ✦</span>
+        <h3 className="srv-cta-title">
+          Ready to Grow Your Business<br />With Every Tool You Need?
+        </h3>
+        <p className="srv-cta-desc">
+          Stop juggling five different agencies. One strategy, one team, one goal — your growth.
+        </p>
+        <a href="#contact" className="btn-primary">✦ Book a Free Strategy Call</a>
+      </div>
+
+    </section>
+  )
+}
+// ===== END SERVICES SECTION =====
 
 
 export default function Home() {
@@ -347,7 +502,7 @@ export default function Home() {
             </a>
             <div role="menubar" className="navbar-links">
               <a href="#home">Home</a>
-              <a href="#solutions">Solutions</a>
+              <a href="#services">Services</a>
               <a href="#about">About</a>
               <a href="#contact">Contact</a>
             </div>
@@ -366,19 +521,15 @@ export default function Home() {
             See what is working. Fix what is not. Make smarter moves with AI.
           </p>
 
-          {/* 3D ORB + ORBITING LOGOS — above buttons */}
           <OrbWithLogos />
 
-          {/* CTA BUTTONS */}
           <div className="hero-btns">
             <a href="#contact" className="btn-primary">Get Started →</a>
-            <a href="#solutions" className="btn-secondary">Learn More</a>
+            <a href="#services" className="btn-secondary">Our Services</a>
           </div>
 
-          {/* ✅ PROBLEM / SOLUTION — right after buttons */}
           <ProblemSolution />
 
-          {/* TRUST BADGE */}
           <div style={{
             marginTop: '48px',
             display: 'flex', alignItems: 'center', gap: '12px',
@@ -421,6 +572,9 @@ export default function Home() {
             </div>
           ))}
         </section>
+
+        {/* ===== SERVICES SECTION ===== */}
+        <ServicesSection />
 
         {/* HOW IT WORKS */}
         <section id="solutions" aria-labelledby="steps-heading" className="steps-section">
@@ -485,9 +639,7 @@ export default function Home() {
 
             <div>
               <p className="footer-col-title">NEWSLETTER</p>
-              <p className="newsletter-desc">
-                Get the latest AI tips and updates directly in your inbox.
-              </p>
+              <p className="newsletter-desc">Get the latest AI tips and updates directly in your inbox.</p>
               {subscribed ? (
                 <p className="newsletter-success">✓ Subscribed! Thank you!</p>
               ) : (
@@ -500,10 +652,7 @@ export default function Home() {
                     className="newsletter-input"
                     aria-label="Email address"
                   />
-                  <button
-                    onClick={() => email && setSubscribed(true)}
-                    className="newsletter-btn"
-                  >
+                  <button onClick={() => email && setSubscribed(true)} className="newsletter-btn">
                     Subscribe →
                   </button>
                 </div>
@@ -520,6 +669,7 @@ export default function Home() {
             </nav>
           </div>
         </footer>
+
       </main>
     </>
   )
