@@ -18,10 +18,10 @@ function OrbWithLogos() {
   }, [])
 
   const logos = [
-    { src: '/logos/google.svg',     alt: 'Google',      color: '#4285F4' },
+    { src: '/logos/googleads.svg',     alt: 'Google',      color: '#4285F4' },
     { src: '/logos/meta.svg',       alt: 'Meta',         color: '#0866FF' },
     { src: '/logos/openai.svg',     alt: 'OpenAI',       color: '#ffffff' },
-    { src: '/logos/googlemaps.svg', alt: 'Google Maps',  color: '#34A853' },
+    { src: '/logos/googlemap.svg', alt: 'Google Maps',  color: '#34A853' },
     { src: '/logos/html5.svg',      alt: 'HTML5',        color: '#E34F26' },
   ]
 
