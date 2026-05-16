@@ -9,18 +9,21 @@ import "./globals.css"
 // ===== ORBITING LOGOS COMPONENT =====
 function OrbWithLogos() {
   const [angle, setAngle] = useState(0)
+const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setAngle(prev => (prev + 0.4) % 360)
-    }, 16)
-    return () => clearInterval(interval)
-  }, [])
+ useEffect(() => {
+  setMounted(true)
+  const interval = setInterval(() => {
+    setAngle(prev => (prev + 0.4) % 360)
+  }, 16)
+  return () => clearInterval(interval)
+}, [])
+if (!mounted) return null
 
   const logos = [
     { src: '/logos/googleads.svg',     alt: 'Google',      color: '#4285F4' },
     { src: '/logos/meta.svg',       alt: 'Meta',         color: '#0866FF' },
-    { src: '/logos/openai.svg',     alt: 'OpenAI',       color: '#ffffff' },
+    { src: '/logos/claude-ai-icon.svg',     alt: 'OpenAI',       color: '#ffffff' },
     { src: '/logos/googlemap.svg', alt: 'Google Maps',  color: '#34A853' },
     { src: '/logos/html5.svg',      alt: 'HTML5',        color: '#E34F26' },
   ]
@@ -189,8 +192,8 @@ export default function Home() {
           <nav role="navigation" aria-label="Main Navigation" className="navbar">
             <a href="/" className="navbar-logo">
               <span style={{ color: '#7C3AED' }}>Easy</span>
-              <span> Where </span>
-              <span style={{ color: '#A78BFA' }}>Solution</span>
+              <span> Where </span> <span>Solution</span>
+            
             </a>
             <div role="menubar" className="navbar-links">
               <a href="#home">Home</a>
@@ -232,17 +235,7 @@ export default function Home() {
             padding: '10px 22px',
             fontSize: '12px', color: '#9CA3AF',
           }}>
-            <span style={{ display: 'flex' }}>
-              {['#7C3AED','#5B21B6','#4C1D95','#6D28D9','#8B5CF6'].map((c, i) => (
-                <span key={i} style={{
-                  width: '26px', height: '26px',
-                  borderRadius: '50%', background: c,
-                  border: '2px solid #0D0D14',
-                  marginLeft: i > 0 ? '-8px' : '0',
-                  display: 'inline-block',
-                }} />
-              ))}
-            </span>
+          <span style={{ fontSize: '18px' }}>✦</span>
             <span>Trusted by <strong style={{ color: '#A78BFA' }}>1,000+</strong> businesses worldwide</span>
           </div>
         </section>
