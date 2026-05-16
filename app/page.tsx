@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Marquee from "react-fast-marquee"
 import { Canvas } from "@react-three/fiber"
 import { Float, OrbitControls } from "@react-three/drei"
@@ -9,23 +9,23 @@ import "./globals.css"
 // ===== ORBITING LOGOS COMPONENT =====
 function OrbWithLogos() {
   const [angle, setAngle] = useState(0)
-const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
- useEffect(() => {
-  setMounted(true)
-  const interval = setInterval(() => {
-    setAngle(prev => (prev + 0.4) % 360)
-  }, 16)
-  return () => clearInterval(interval)
-}, [])
-if (!mounted) return null
+  useEffect(() => {
+    setMounted(true)
+    const interval = setInterval(() => {
+      setAngle(prev => (prev + 0.4) % 360)
+    }, 16)
+    return () => clearInterval(interval)
+  }, [])
+  if (!mounted) return null
 
   const logos = [
     { src: '/logos/googleads.svg',     alt: 'Google',      color: '#4285F4' },
-    { src: '/logos/meta.svg',       alt: 'Meta',         color: '#0866FF' },
-    { src: '/logos/claude-ai-icon.svg',     alt: 'OpenAI',       color: '#ffffff' },
-    { src: '/logos/googlemap.svg', alt: 'Google Maps',  color: '#34A853' },
-    { src: '/logos/html5.svg',      alt: 'HTML5',        color: '#E34F26' },
+    { src: '/logos/meta.svg',          alt: 'Meta',        color: '#0866FF' },
+    { src: '/logos/claude-ai-icon.svg',alt: 'OpenAI',      color: '#7C3AED' },
+    { src: '/logos/googlemap.svg',     alt: 'Google Maps', color: '#34A853' },
+    { src: '/logos/html5.svg',         alt: 'HTML5',       color: '#E34F26' },
   ]
 
   const orbitRadius = 140
@@ -84,7 +84,7 @@ if (!mounted) return null
             transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
             width: '44px', height: '44px',
             borderRadius: '50%',
-            backgroundColor: '#1a1733',
+            backgroundColor: '#FFFFFF',
             border: `1.5px solid ${logo.color}55`,
             display: 'flex',
             alignItems: 'center',
@@ -108,7 +108,7 @@ if (!mounted) return null
         bottom: '10px', left: '50%',
         transform: 'translateX(-50%)',
         width: '180px', height: '30px',
-        background: 'radial-gradient(ellipse, rgba(124,58,237,0.3) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse, rgba(124,58,237,0.2) 0%, transparent 70%)',
         pointerEvents: 'none',
         zIndex: 0,
       }} />
@@ -116,6 +116,157 @@ if (!mounted) return null
   )
 }
 // ===== END ORBITING LOGOS =====
+
+
+// ===== PROBLEM / SOLUTION SECTION =====
+function ProblemSolution() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+  const [leftVisible, setLeftVisible] = useState(false)
+  const [rightVisible, setRightVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          setTimeout(() => setLeftVisible(true), 200)
+          setTimeout(() => setRightVisible(true), 500)
+        }
+      },
+      { threshold: 0.15 }
+    )
+    if (sectionRef.current) observer.observe(sectionRef.current)
+    return () => observer.disconnect()
+  }, [])
+
+  const problems = [
+    {
+      num: "01",
+      title: "Feeling Ignored",
+      desc: "You hired a marketing agency, paid thousands, and now they barely respond to your emails. No results. No answers."
+    },
+    {
+      num: "02",
+      title: "Invisible on Google",
+      desc: "Your competitors show up first on Google Maps and Search. Your business is buried on page 3 where no one looks."
+    },
+    {
+      num: "03",
+      title: "Losing Leads Daily",
+      desc: "Missed calls, slow follow-ups, and no system in place. Every unanswered call is money walking out the door."
+    },
+    {
+      num: "04",
+      title: "Wasting Ad Budget",
+      desc: "Running Google or Meta Ads with zero ROI? Wrong targeting and poor creatives burn your budget with nothing to show."
+    },
+  ]
+
+  const solutions = [
+    {
+      icon: "✦",
+      title: "Always Reachable, Always Responsive",
+      desc: "24/7 direct access through our Client Portal. Real humans + AI working around the clock so you're never left waiting."
+    },
+    {
+      icon: "✦",
+      title: "Dominate Local Search",
+      desc: "We push your business to the top of Google Maps and Search using aggressive SEO strategies that actually work."
+    },
+    {
+      icon: "✦",
+      title: "Zero Missed Opportunities",
+      desc: "Our AI CRM captures every lead, follows up instantly, and books appointments — so you never lose a customer again."
+    },
+    {
+      icon: "✦",
+      title: "Ads That Actually Convert",
+      desc: "Data-driven Google & Meta campaigns with high-converting creatives, precise targeting, and full monthly reporting."
+    },
+  ]
+
+  return (
+    <section
+      ref={sectionRef}
+      id="problem-solution"
+      aria-labelledby="ps-heading"
+      className="ps-section"
+    >
+      {/* HEADER */}
+      <div className={`ps-header ${visible ? 'ps-visible' : ''}`}>
+        <p className="ps-label">✦ THE REAL PROBLEM ✦</p>
+        <h2 id="ps-heading" className="ps-title">
+          The Problem vs Our Solution
+        </h2>
+        <p className="ps-subtitle">
+          We built Easy Where Solution because we understand the frustrations
+          business owners face with marketing — and we built a better way.
+        </p>
+      </div>
+
+      {/* TWO BOXES */}
+      <div className="ps-grid">
+
+        {/* LEFT — PROBLEMS */}
+        <div className={`ps-left ${leftVisible ? 'ps-left-visible' : ''}`}>
+          <div className="ps-box-header">
+            <p className="ps-box-label ps-box-label--problem">MORE THAN LIKELY, YOU ARE</p>
+            <h3 className="ps-box-title">Struggling With These Issues</h3>
+            <p className="ps-box-desc">
+              Sound familiar? You're not alone. Most business owners face these exact problems.
+            </p>
+          </div>
+
+          {problems.map((p) => (
+            <div key={p.num} className="ps-problem-item">
+              <span className="ps-problem-num">{p.num}</span>
+              <div className="ps-problem-content">
+                <h4>{p.title}</h4>
+                <p>{p.desc}</p>
+              </div>
+            </div>
+          ))}
+
+          <div className="ps-quote">
+            "It's tough to trust anyone in the marketing space when you've been burned by empty promises before."
+          </div>
+        </div>
+
+        {/* RIGHT — SOLUTIONS */}
+        <div className={`ps-right ${rightVisible ? 'ps-right-visible' : ''}`}>
+          <div className="ps-box-header">
+            <p className="ps-box-label ps-box-label--solution">OUR SOLUTION</p>
+            <h3 className="ps-box-title">Here's How We Fix It</h3>
+            <p className="ps-box-desc">
+              We don't make promises — we build systems that deliver real, measurable results.
+            </p>
+          </div>
+
+          {solutions.map((s, i) => (
+            <div key={i} className="ps-solution-item">
+              <div className="ps-solution-icon">{s.icon}</div>
+              <div className="ps-solution-content">
+                <h4>{s.title}</h4>
+                <p>{s.desc}</p>
+              </div>
+            </div>
+          ))}
+
+          <div className="ps-guarantee">
+            <span className="ps-guarantee-badge">GUARANTEED</span>
+            <p className="ps-guarantee-text">
+              If you don't see <strong>significant growth within 180 days</strong>, we keep working at no extra cost. That's our promise.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  )
+}
+// ===== END PROBLEM / SOLUTION =====
+
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -192,8 +343,7 @@ export default function Home() {
           <nav role="navigation" aria-label="Main Navigation" className="navbar">
             <a href="/" className="navbar-logo">
               <span style={{ color: '#7C3AED' }}>Easy</span>
-              <span> Where </span> <span>Solution</span>
-            
+              <span> Where </span><span>Solution</span>
             </a>
             <div role="menubar" className="navbar-links">
               <a href="#home">Home</a>
@@ -216,27 +366,30 @@ export default function Home() {
             See what is working. Fix what is not. Make smarter moves with AI.
           </p>
 
-          {/* 3D ORB + ORBITING LOGOS */}
-          <OrbWithLogos />
-
           {/* CTA BUTTONS */}
           <div className="hero-btns">
             <a href="#contact" className="btn-primary">Get Started →</a>
             <a href="#solutions" className="btn-secondary">Learn More</a>
           </div>
 
+          {/* ✅ PROBLEM / SOLUTION — RIGHT AFTER BUTTONS */}
+          <ProblemSolution />
+
+          {/* 3D ORB + ORBITING LOGOS */}
+          <OrbWithLogos />
+
           {/* TRUST BADGE */}
           <div style={{
             marginTop: '48px',
             display: 'flex', alignItems: 'center', gap: '12px',
-            background: '#1a1733',
+            background: '#FFFFFF',
             border: '1px solid rgba(124,58,237,0.2)',
             borderRadius: '50px',
             padding: '10px 22px',
             fontSize: '12px', color: '#9CA3AF',
           }}>
-          <span style={{ fontSize: '18px' }}>✦</span>
-            <span>Trusted by <strong style={{ color: '#A78BFA' }}>1,000+</strong> businesses worldwide</span>
+            <span style={{ fontSize: '18px' }}>✦</span>
+            <span>Trusted by <strong style={{ color: '#7C3AED' }}>1,000+</strong> businesses worldwide</span>
           </div>
         </section>
 
