@@ -717,7 +717,7 @@ body {
   padding: 40px;
   opacity: 0;
   transform: translateX(-60px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+ transition: opacity 1.4s ease, transform 1.4s ease;
   box-shadow: 0 4px 24px rgba(124, 58, 237, 0.06);
 }
 
@@ -734,7 +734,7 @@ body {
   padding: 40px;
   opacity: 0;
   transform: translateX(60px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 1.4s ease, transform 1.4s ease;
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 24px rgba(124, 58, 237, 0.08);
